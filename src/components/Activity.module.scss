@@ -1,0 +1,72 @@
+.activity {
+  min-width: 19rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--modalBackgroundColor);
+  border: var(--playButtonBorder);
+  border-radius: 1em;
+
+  &::backdrop {
+    background-color: rgb(0, 0, 0, 0.4);
+  }
+}
+
+.content {
+  padding: 2em 2em 1.5em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  color: var(--modalForegroundColor);
+}
+
+.clock {
+  width: 8.5rem;
+}
+
+.exercise {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5em;
+  white-space: nowrap;
+}
+
+.exerciseImage {
+  width: 2rem;
+}
+
+.exerciseCheckbox {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  &:not(:checked) {
+    opacity: var(--uncheckedCheckboxOpacity);
+  }
+}
+
+.doneButton {
+  width: 100%;
+  padding-block: 0.5em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: var(--accentColor);
+  color: white;
+  border-radius: 2.5em;
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: gray;
+  }
+}
+
+.skipButton {
+  font-size: 0.8rem;
+  background-color: transparent;
+  color: gray;
+  cursor: pointer;
+}

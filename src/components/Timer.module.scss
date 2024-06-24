@@ -1,0 +1,41 @@
+.timerContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.time {
+  font-family: 'Roboto Bold', sans-serif;
+  font-size: 6.9rem;
+  line-height: 0.8;
+}
+
+.playButton {
+  width: 17.4rem;
+  padding-block: 0.7em;
+  margin-top: 1em;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: var(--playButtonBackgroundColor);
+  border: var(--playButtonBorder);
+  border-radius: 2em;
+  cursor: pointer;
+}
+
+.glow {
+  animation: glow 0.3s;
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 0 0 white;
+    }
+    50% {
+      box-shadow: 0 0 2.3em 0 white;
+    }
+    100% {
+      box-shadow: 0 0 0 0 white;
+    }
+  }
+}

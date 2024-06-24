@@ -1,0 +1,38 @@
+.menuButton {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 1.5em;
+  background-color: transparent;
+  cursor: pointer;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.settingsButton {
+  @extend .menuButton;
+  left: 1.5em;
+}
+.statsButton {
+  @extend .menuButton;
+  right: 1.5em;
+}
+
+.today {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+
+  svg {
+    margin-right: -0.4em;
+    stroke: var(--mainForegroundColor);
+    stroke-width: 0.06em;
+  }
+}

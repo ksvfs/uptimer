@@ -1,0 +1,142 @@
+.settings {
+  min-width: 19rem;
+  max-height: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: var(--modalBackgroundColor);
+  color: var(--modalForegroundColor);
+  border: var(--playButtonBorder);
+  border-radius: 1em;
+
+  &::backdrop {
+    background-color: rgb(0, 0, 0, 0.4);
+  }
+}
+
+.header {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--modalForegroundColor);
+
+  .heading {
+    font-size: 1.4rem;
+  }
+
+  .closeButton {
+    width: 1.3rem;
+    background: transparent;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--modalForegroundColor);
+      stroke-width: 0.05em;
+    }
+  }
+}
+
+.content {
+  max-height: calc(100dvh - 11rem);
+  overflow-y: scroll;
+  scrollbar-width: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbarColor);
+    border-radius: 0.3rem;
+  }
+
+  @media (aspect-ratio < 0.8) {
+    max-height: calc(100dvh - 13rem);
+  }
+}
+
+.section {
+  padding: 1.5em 1em 0 1em;
+}
+
+.select {
+  padding: 0.3em;
+  background-color: var(--selectBackgroundColor);
+  color: var(--modalForegroundColor);
+  border: 1px solid var(--modalForegroundColor);
+  border-radius: 0.5em;
+}
+
+.timerSetting {
+  margin-top: 0.7em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.exerciseSetting {
+  margin-block: 0.7em;
+  display: flex;
+  align-items: center;
+}
+
+.exerciseImage {
+  width: 2rem;
+  margin-right: 0.7em;
+}
+
+.checkbox {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-left: auto;
+  margin-right: 0.7em;
+
+  &:not(:checked) {
+    opacity: var(--uncheckedCheckboxOpacity);
+  }
+}
+
+.themeSetting {
+  padding-block: 1em;
+  display: flex;
+  gap: 0.5em;
+  overflow: hidden;
+}
+
+.themeColor {
+  height: 2.5rem;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 0.6em;
+
+  &:not(.activeTheme) {
+    cursor: pointer;
+  }
+}
+
+.themeCheck {
+  width: 1.7rem;
+  color: white;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:not(.activeTheme) {
+    display: none;
+  }
+}
+
+.soundSetting {
+  margin-block: 1em;
+  display: flex;
+  justify-content: space-between;
+}

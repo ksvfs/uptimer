@@ -1,0 +1,56 @@
+export default {
+  workTime: 1500,
+  theme: 'amethyst',
+  volume: 1,
+  exercises: [
+    {
+      id: 1,
+      name: 'Подтягивания',
+      imageSrc: 'images/exercises/pullup.webp',
+      reps: 5,
+      isActive: true,
+    },
+    {
+      id: 2,
+      name: 'Отжимания',
+      imageSrc: 'images/exercises/pushup.webp',
+      reps: 10,
+      isActive: true,
+    },
+    {
+      id: 3,
+      name: 'Приседания',
+      imageSrc: 'images/exercises/squat.webp',
+      reps: 10,
+      isActive: true,
+    },
+    {
+      id: 4,
+      name: 'Выпады',
+      imageSrc: 'images/exercises/lunge.webp',
+      reps: 10,
+      isActive: true,
+    },
+    {
+      id: 5,
+      name: 'Наклоны',
+      imageSrc: 'images/exercises/stretch.webp',
+      reps: 10,
+      isActive: true,
+    },
+    {
+      id: 6,
+      name: 'Мельница',
+      imageSrc: 'images/exercises/mill.webp',
+      reps: 20,
+      isActive: true,
+    },
+    {
+      id: 7,
+      name: 'Мостик',
+      imageSrc: 'images/exercises/bridge.webp',
+      reps: 10,
+      isActive: true,
+    },
+  ],
+};
