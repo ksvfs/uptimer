@@ -88,16 +88,7 @@ function Settings({ showSettings, setShowSettings, settings, setSettings }: Sett
   }
 
   function closeModalOnOutsideClick(e: React.MouseEvent<HTMLDialogElement, MouseEvent>): void {
-    const dialogDimensions = dialogRef.current?.getBoundingClientRect();
-
-    if (!dialogDimensions) return;
-
-    if (
-      e.clientX < dialogDimensions.left ||
-      e.clientX > dialogDimensions.right ||
-      e.clientY < dialogDimensions.top ||
-      e.clientY > dialogDimensions.bottom
-    ) {
+    if ((e.target as HTMLElement).tagName === 'DIALOG') {
       setShowSettings(false);
     }
   }

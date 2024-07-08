@@ -42,16 +42,7 @@ function Stats({ showStats, setShowStats, sessionHistory, activityHistory, setti
   }, [settings.exercises]);
 
   function closeModalOnOutsideClick(e: React.MouseEvent<HTMLDialogElement, MouseEvent>): void {
-    const dialogDimensions = dialogRef.current?.getBoundingClientRect();
-
-    if (!dialogDimensions) return;
-
-    if (
-      e.clientX < dialogDimensions.left ||
-      e.clientX > dialogDimensions.right ||
-      e.clientY < dialogDimensions.top ||
-      e.clientY > dialogDimensions.bottom
-    ) {
+    if ((e.target as HTMLElement).tagName === 'DIALOG') {
       setShowStats(false);
     }
   }
