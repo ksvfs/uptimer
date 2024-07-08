@@ -11,7 +11,12 @@ interface ActivityProps {
   setActivityHistory: React.Dispatch<React.SetStateAction<ActivityHistory>>;
 }
 
-function Activity({ showActivity, setShowActivity, settings, setActivityHistory }: ActivityProps) {
+const Activity = memo(function Activity({
+  showActivity,
+  setShowActivity,
+  settings,
+  setActivityHistory,
+}: ActivityProps) {
   const [currentExercises, setCurrentExercises] = useState<Exercise[]>([]);
 
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -131,6 +136,6 @@ function Activity({ showActivity, setShowActivity, settings, setActivityHistory 
       </div>
     </dialog>
   );
-}
+});
 
-export default memo(Activity);
+export default Activity;

@@ -13,7 +13,7 @@ interface TimerProps {
   showStats: boolean;
 }
 
-function Timer({
+const Timer = memo(function Timer({
   setShowActivity,
   setSessionHistory,
   settings,
@@ -112,6 +112,6 @@ function Timer({
       </button>
     </div>
   );
-}
+});
 
-export default memo(Timer);
+export default Timer;

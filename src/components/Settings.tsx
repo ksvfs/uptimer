@@ -12,7 +12,12 @@ interface SettingsProps {
   setSettings: React.Dispatch<React.SetStateAction<SettingsObject>>;
 }
 
-function Settings({ showSettings, setShowSettings, settings, setSettings }: SettingsProps) {
+const Settings = memo(function Settings({
+  showSettings,
+  setShowSettings,
+  settings,
+  setSettings,
+}: SettingsProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(
@@ -203,6 +208,6 @@ function Settings({ showSettings, setShowSettings, settings, setSettings }: Sett
       </div>
     </dialog>
   );
-}
+});
 
-export default memo(Settings);
+export default Settings;

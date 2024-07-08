@@ -16,7 +16,13 @@ interface StatsProps {
   settings: SettingsObject;
 }
 
-function Stats({ showStats, setShowStats, sessionHistory, activityHistory, settings }: StatsProps) {
+const Stats = memo(function Stats({
+  showStats,
+  setShowStats,
+  sessionHistory,
+  activityHistory,
+  settings,
+}: StatsProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(
@@ -92,6 +98,6 @@ function Stats({ showStats, setShowStats, sessionHistory, activityHistory, setti
       </div>
     </dialog>
   );
-}
+});
 
-export default memo(Stats);
+export default Stats;

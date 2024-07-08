@@ -21,7 +21,10 @@ interface StatsBarChartProps {
   settings: SettingsObject;
 }
 
-function StatsBarChart({ sessionHistory, settings }: StatsBarChartProps) {
+const StatsBarChart = memo(function StatsBarChart({
+  sessionHistory,
+  settings,
+}: StatsBarChartProps) {
   const DAYS = 20;
 
   function getLast20Days(): string[] {
@@ -99,6 +102,6 @@ function StatsBarChart({ sessionHistory, settings }: StatsBarChartProps) {
   };
 
   return <Bar options={options} data={data} />;
-}
+});
 
-export default memo(StatsBarChart);
+export default StatsBarChart;

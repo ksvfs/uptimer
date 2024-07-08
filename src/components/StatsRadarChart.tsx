@@ -22,7 +22,11 @@ interface StatsRadarChartProps {
   activeExercises: string[];
 }
 
-function StatsRadarChart({ activityHistory, settings, activeExercises }: StatsRadarChartProps) {
+const StatsRadarChart = memo(function StatsRadarChart({
+  activityHistory,
+  settings,
+  activeExercises,
+}: StatsRadarChartProps) {
   const reps = Array<number>(activeExercises.length).fill(0);
 
   for (const entry of activityHistory) {
@@ -83,6 +87,6 @@ function StatsRadarChart({ activityHistory, settings, activeExercises }: StatsRa
   };
 
   return <Radar options={options} data={data} />;
-}
+});
 
-export default memo(StatsRadarChart);
+export default StatsRadarChart;
