@@ -6,20 +6,21 @@ import Settings from './components/Settings';
 import Stats from './components/Stats';
 
 import styles from './App.module.scss';
-import icons from './assets/icons.jsx';
-import themes from './data/themes.js';
-import defaultSettings from './data/defaultSettings.js';
-import { getCurrentDate } from './utils/utils.js';
+import icons from './assets/icons.tsx';
+import themes from './data/themes.ts';
+import defaultSettings from './data/defaultSettings.ts';
+import { getCurrentDate } from './utils/utils.ts';
+import { SettingsObject, SessionHistory, ActivityHistory, ThemeColors } from './types/types.ts';
 
 function App() {
-  const [settings, setSettings] = useState(
-    JSON.parse(localStorage.getItem('settings')) ?? defaultSettings
+  const [settings, setSettings] = useState<SettingsObject>(
+    getItemFromLocalStorage('settings') ?? defaultSettings
   );
-  const [sessionHistory, setSessionHistory] = useState(
-    JSON.parse(localStorage.getItem('sessionHistory')) ?? []
+  const [sessionHistory, setSessionHistory] = useState<SessionHistory>(
+    getItemFromLocalStorage('sessionHistory') ?? []
   );
-  const [activityHistory, setActivityHistory] = useState(
-    JSON.parse(localStorage.getItem('activityHistory')) ?? []
+  const [activityHistory, setActivityHistory] = useState<ActivityHistory>(
+    getItemFromLocalStorage('activityHistory') ?? []
   );
 
   const [showActivity, setShowActivity] = useState(false);
@@ -28,10 +29,10 @@ function App() {
 
   useLayoutEffect(
     function applyTheme() {
-      const currentTheme = themes[settings.theme];
-      for (const property in currentTheme) {
-        document.body.style.setProperty('--' + property, currentTheme[property]);
-      }
+      const currentTheme: ThemeColors = themes[settings.theme];
+      Object.entries(currentTheme).forEach(([key, value]) => {
+        document.body.style.setProperty('--' + key, value);
+      });
     },
     [settings.theme]
   );
@@ -50,12 +51,17 @@ function App() {
     [activityHistory]
   );
 
-  function getTodayActivity() {
+  function getItemFromLocalStorage(item: string) {
+    const localStorageItem = localStorage.getItem(item);
+    return localStorageItem ? JSON.parse(localStorageItem) : null;
+  }
+
+  function getTodayActivity(): number {
     const todayActivity = activityHistory.filter((entry) => entry[0].date === getCurrentDate());
     return todayActivity.length;
   }
 
-  function getTodaySessions() {
+  function getTodaySessions(): number {
     const todaySessions = sessionHistory.filter((entry) => entry.date === getCurrentDate());
     return todaySessions.length;
   }
